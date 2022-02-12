@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!--조각 자체가 레이아웃이 된다.
+랜더링 하려는 페이지에서 조각에 필요한 재료를 넣어 조각을 완성시키고, 해당 조각을 자신의것으로 교체한다.
+고로 조각 자체에 고정된 요소들은 해당 조각을 쓰려는 모든 페이지에 레이아웃처럼 작동하게 된다.-->
+<head th:fragment="common_header(title,links)">
+    <title th:replace="${title}">레이아웃 타이틀</title>
+    <!-- 공통 -->
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/awesomeapp.css}">
+    <link rel="shortcut icon" th:href="@{/images/favicon.ico}">
+    <script type="text/javascript" th:src="@{/sh/scripts/codebase.js}"></script>
+    <!-- 추가 -->
+    <th:block th:replace="${links}" />
+</head>
